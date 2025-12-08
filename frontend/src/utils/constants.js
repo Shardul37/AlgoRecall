@@ -1,0 +1,20 @@
+export const CATEGORIES = [
+    "Sorting",
+    "Array",
+    "String",
+    "Hashing",
+    "Sliding Window/Two Pointers",
+    "Stack/Queue",
+    "Linked List",
+    "Recursion",
+    "Binary Search",
+    "Trees",
+    "BST",
+    "Heap",
+    "Graph",
+    "DP",
+    "Backtracking",
+    "Tries",
+    "Bit Manipulation",
+    "Greedy"
+  ];
