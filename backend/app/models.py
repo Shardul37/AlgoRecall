@@ -10,6 +10,7 @@ class Problem(Base):
     name = Column(String, index=True)
     link = Column(String)
     category = Column(String, index=True)
+    question = Column(Text, nullable=True) # Full problem description/question
     flashcard_title = Column(String, nullable=True)
     flashcard_code = Column(Text, nullable=True) # Text allows for long code blocks
     

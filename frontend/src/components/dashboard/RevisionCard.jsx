@@ -56,9 +56,10 @@ const RevisionCard = ({ revision }) => {
       </div>
 
       {/* Flashcard Dropdown */}
-      <Flashcard 
-        title={revision.flashcard_title} // Backend needs to pass these (we might need a small tweak later)
-        code={revision.flashcard_code} 
+      <Flashcard
+        question={revision.question}
+        title={revision.flashcard_title}
+        code={revision.flashcard_code}
       />
 
       {/* Action Bar (Rating Buttons) */}

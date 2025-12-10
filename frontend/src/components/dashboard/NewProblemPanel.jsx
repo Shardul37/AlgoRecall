@@ -13,6 +13,7 @@ const NewProblemPanel = () => {
     name: '',
     link: '',
     category: CATEGORIES[0],
+    question: '',
     flashcard_title: '',
     flashcard_code: ''
   });
@@ -32,6 +33,7 @@ const NewProblemPanel = () => {
         name: '',
         link: '',
         category: CATEGORIES[0],
+        question: '',
         flashcard_title: '',
         flashcard_code: ''
       });
@@ -66,6 +68,18 @@ const NewProblemPanel = () => {
             className="w-full bg-background border border-dim/30 rounded p-2 text-sm focus:border-primary focus:outline-none transition-colors"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
+          />
+        </div>
+
+        {/* Question */}
+        <div>
+          <label className="text-xs font-medium text-dim uppercase mb-1 block">Problem Question</label>
+          <textarea
+            rows="4"
+            placeholder="Paste the full problem description here..."
+            className="w-full bg-background border border-dim/30 rounded p-2 text-sm focus:border-primary focus:outline-none resize-none"
+            value={formData.question}
+            onChange={(e) => setFormData({...formData, question: e.target.value})}
           />
         </div>
 

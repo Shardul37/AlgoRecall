@@ -3,8 +3,8 @@ from datetime import date, timedelta
 from . import models, schemas
 from sqlalchemy import extract, func
 
-# Fixed Spaced Repetition Intervals
-INTERVALS = [0, 1, 3, 7, 14, 30, 90]
+# Fixed Spaced Repetition Intervals (days between revisions)
+INTERVALS = [0, 3, 7, 14, 30, 90]
 
 # ... inside crud.py
 

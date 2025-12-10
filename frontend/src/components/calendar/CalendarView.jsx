@@ -101,8 +101,8 @@ const CalendarView = () => {
                     </div>
 
                     {/* Task Dots / List */}
-                    <div className="flex-1 overflow-y-auto space-y-1 custom-scrollbar">
-                        {dayRevisions.slice(0, 3).map((rev, idx) => (
+                    <div className="flex-1 overflow-y-auto space-y-1 custom-scrollbar max-h-full">
+                        {dayRevisions.map((rev, idx) => (
                             <button
                                 key={idx}
                                 onClick={(e) => {
@@ -114,11 +114,6 @@ const CalendarView = () => {
                                 {rev.problem_name}
                             </button>
                         ))}
-                        {dayRevisions.length > 3 && (
-                            <div className="text-[10px] text-dim pl-1">
-                                +{dayRevisions.length - 3} more
-                            </div>
-                        )}
                     </div>
                 </div>
             );

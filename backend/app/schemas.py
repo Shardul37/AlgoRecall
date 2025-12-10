@@ -8,6 +8,7 @@ class ProblemBase(BaseModel):
     name: str
     link: str
     category: str
+    question: Optional[str] = None
     flashcard_title: Optional[str] = None
     flashcard_code: Optional[str] = None
 
@@ -38,6 +39,7 @@ class Revision(BaseModel):
     days_overdue: int = 0
     problem_name: str
     category: str
+    question: Optional[str] = None
     # --- NEW FIELDS ---
     flashcard_title: Optional[str] = None
     flashcard_code: Optional[str] = None
@@ -75,6 +77,7 @@ class ProblemDetail(BaseModel):
     name: str
     link: str
     category: str
+    question: Optional[str] = None
     flashcard_title: Optional[str] = None
     flashcard_code: Optional[str] = None
     next_revision_date: Optional[date] = None
