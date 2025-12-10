@@ -105,6 +105,7 @@ const CalendarView = () => {
                         {dayRevisions.map((rev, idx) => (
                             <button
                                 key={idx}
+                                title={rev.problem_name}
                                 onClick={(e) => {
                                     e.stopPropagation(); // Prevent bubbling
                                     setSelectedProblemId(rev.problem_id); // <--- OPEN MODAL

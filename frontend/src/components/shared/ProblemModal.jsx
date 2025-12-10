@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { X, ExternalLink, Calendar, BookOpen, Code, Activity } from 'lucide-react';
+import { X, ExternalLink, Calendar, BookOpen, Code, Activity, ChevronDown, ChevronUp } from 'lucide-react';
 import api from '../../services/api';
 
 const ProblemModal = ({ problemId, onClose }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [questionExpanded, setQuestionExpanded] = useState(false);
 
   // Fetch details when modal opens
   useEffect(() => {
@@ -66,9 +67,9 @@ const ProblemModal = ({ problemId, onClose }) => {
                 <>
                     {/* Link */}
                     <div>
-                        <a 
-                            href={data.link} 
-                            target="_blank" 
+                        <a
+                            href={data.link}
+                            target="_blank"
                             rel="noreferrer"
                             className="inline-flex items-center gap-2 text-primary hover:text-blue-400 font-medium transition-colors"
                         >
@@ -76,6 +77,31 @@ const ProblemModal = ({ problemId, onClose }) => {
                             Open Problem in LeetCode/GFG
                         </a>
                     </div>
+
+                    {/* Question Section */}
+                    {data.question && (
+                        <div className="bg-background/50 rounded-xl border border-dim/20 overflow-hidden">
+                            <div className="px-4 py-3 border-b border-dim/10 flex items-center gap-2 text-sm font-semibold text-dim">
+                                <Code size={16} />
+                                Problem Statement
+                            </div>
+                            <div className="p-4">
+                                <div className={`text-sm text-dim whitespace-pre-wrap leading-relaxed ${
+                                    !questionExpanded ? 'max-h-16 overflow-hidden' : ''
+                                }`}>
+                                    {data.question}
+                                </div>
+                                {data.question.length > 150 && (
+                                    <button
+                                        onClick={() => setQuestionExpanded(!questionExpanded)}
+                                        className="mt-2 text-xs text-primary hover:text-blue-400 font-medium transition-colors"
+                                    >
+                                        {questionExpanded ? 'Show less' : 'Show more'}
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Flashcard Section */}
                     {(data.flashcard_title || data.flashcard_code) && (
